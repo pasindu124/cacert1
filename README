@@ -1,0 +1,27 @@
+Laboratary: Apache SSL and S/MIME
+---------------------------------
+
+1. installed OpenSSL
+
+2. execute createCA.sh script. 
+   It will create your own CA. Your CA server's public key file is cacert.pem. It is in the sslCA directory. This public key has to be configured as trusted certificate in your application.
+
+3. execute createHostCert.sh script. 
+   Your Web server private key and certificate will be created. Your private keyfile is hostkey.pem and  certificate file is  hostcert.pem. You can point these files by editing the  htttpd-ssl.conf.
+
+4. execute createUserCert.sh.
+   It will create your personal certificate. Your private key and certificates are packed into usr.pfx file. You can import it to your browser, e-mail or any other application.
+
+5. Digitally signed a Java applet
+   This personal certificate can be used to signed Java applets by using the following command:
+   jarsigner -storetype pkcs12 -keystore usr.pfx Your_Jar_File.jar mykey
+
+
+Activities
+----------
+
+1. Activate Apache SSL to perform bi-direactional strong authentication.
+
+2. Exchange sign and encrypt e-mails with your friends by using any S/MIME e-mailclient.
+
+3. Create a signed Java applet which reads the user name of the computer.
